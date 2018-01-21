@@ -23,8 +23,8 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 # TODO
 - [x] gitignore toevoegen
 - [x] vue cli project genereren
-- [X] manueel pushen naar github pages
-- [ ] DNS koppelen van domein
+- [x] manueel pushen naar github pages
+- [x] DNS koppelen van domein
 - [ ] online backend koppelen
 - [ ] testen
 - [ ] automatisch deploy bij push
