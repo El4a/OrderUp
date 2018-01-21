@@ -25,6 +25,16 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 - [x] vue cli project genereren
 - [x] manueel pushen naar github pages
 - [x] DNS koppelen van domein
+- [ ] automatisch deploy bij push
 - [ ] online backend koppelen
 - [ ] testen
-- [ ] automatisch deploy bij push
+
+# Links
+- [GitHub Pages](https://pages.github.com/)
+  - [User and Organisation Pages vs Project Pages](https://help.github.com/articles/user-organization-and-project-pages/)
+  - [Configuring a Publishing Source for GitHub Pages](https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/)
+  - [Custom Domain](https://help.github.com/articles/quick-start-setting-up-a-custom-domain/)
+    - [Supported Custom Domains](https://help.github.com/articles/about-supported-custom-domains/)
+    - [Adding a Custom Domain for your GitHub Pages Site](https://help.github.com/articles/adding-or-removing-a-custom-domain-for-your-github-pages-site/)
+    - [Setting up a Custom Subdomain](https://help.github.com/articles/setting-up-a-custom-subdomain/)
+  - [Custom 404 Page](https://help.github.com/articles/creating-a-custom-404-page-for-your-github-pages-site/)
