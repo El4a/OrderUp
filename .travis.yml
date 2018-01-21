@@ -2,3 +2,11 @@ language: node_js
 before_install: 
   - npm install -g npm@5.6.0
 script: npm run build
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  on:
+    branch: master
+  local_dir: dist
+  fqdn: housewarming.poiters.be
