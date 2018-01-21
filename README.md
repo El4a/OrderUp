@@ -21,8 +21,8 @@ npm run build --report
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 # TODO
-- [ ] gitignore toevoegen
-- [ ] vue cli project genereren
+- [x] gitignore toevoegen
+- [x] vue cli project genereren
 - [ ] manueel pushen naar github pages
 - [ ] DNS koppelen van domein
 - [ ] online backend koppelen
