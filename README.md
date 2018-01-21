@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/El4a/OrderUp.svg?branch=master)](https://travis-ci.org/El4a/OrderUp)
+
 # order-up
 
 > Housewarming drinks app
