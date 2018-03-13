@@ -12,15 +12,24 @@ export default {
 </script>
 
 <style lang="scss">
-  .md-layout-item {
-    height: 7rem;
+// ??? hoooow
+// @import "~vue-material/dist/theme/engine"; // Import the theme engine
 
-    &:after {
-      width: 100%;
-      height: 100%;
-      display: block;
-      content: " ";
-    }
+// @include md-register-theme("default", (
+//   primary: md-get-palette-color(teal, A700), // The primary color of your application
+//   accent: md-get-palette-color(red, 200) // The accent or secondary color
+// ));
+
+// @import "~vue-material/dist/theme/all"; // Apply the theme
+
+  .md-gutter .md-layout-item:not(:last-child) {
+    margin-right: 5%;
+  }
+
+  .md-layout-item { //need MQ for desktop view (more items per row -> change
+    height: 45vw;
+    margin-top: 8px;
+    margin-bottom: 8px;
   }
 </style>
 
