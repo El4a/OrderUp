@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Drinks from '@/components/drinks'
+import Drinks from '@/components/Drinks'
 
 Vue.use(Router)
 
