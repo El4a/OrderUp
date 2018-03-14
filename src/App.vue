@@ -22,20 +22,12 @@ export default {
 
 // @import "~vue-material/dist/theme/all"; // Apply the theme
 
-  .md-gutter .md-layout-item:not(:last-child) {
-    margin-right: 5%;
-  }
-
-  .md-layout-item { //need MQ for desktop view (more items per row -> change
-    height: 45vw;
-    margin-top: 8px;
-    margin-bottom: 8px;
-  }
 </style>
 
 <style lang="scss" scoped>
 
 #app {
-  padding: 1.5rem;
+  padding: 5vw;
+  background-color: #EEEEEE;
 }
 </style>
