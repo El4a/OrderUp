@@ -81,7 +81,7 @@
       </div>
       <div class="md-layout-item md-size-25 md-small-size-33 md-xsmall-size-50">
          <div class="drink-wrapper">
-           <img class="drink-img" src="../assets/cgit statusaprioska.jpg" alt="Caprioska"/>
+           <img class="drink-img" src="../assets/caprioska.jpg" alt="Caprioska"/>
             <div class="drink-name">Caprioska</div>
          </div>
       </div>
