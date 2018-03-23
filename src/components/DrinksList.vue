@@ -4,7 +4,7 @@
       <div class="md-layout-item md-size-25 md-small-size-33 md-xsmall-size-50">
         <div class="drink-wrapper">
           <div class="img-wrapper">
-             <img class="drink-img" src="../assets/pintje.jpg" alt="pintje"/>
+             <img class="drink-img" src="../assets/pintje.jpg" alt="pintje" @click=""/>
           </div>     
           <div class="drink-name">Pintje</div>
           </div>
@@ -146,22 +146,27 @@
          </div>
       </div>
     </div>
+    <order-modal></order-modal>
   </div>
 </template>
 
 <script>
+  import Order from '@/components/OrderView.vue';
+
   export default {
     name: 'Drinks', //works the same without this
     data() {
       return {
 
       }
+    },
+     components: {
+      'order-modal': Order
     }
   }
 
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only => doesnt seem to fuckin work -->
 <style lang="scss">
 
 #list {
