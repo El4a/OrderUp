@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Drinks from '@/components/Drinks'
+import Drinks from '@/components/DrinksList'
 
 Vue.use(Router)
 
@@ -8,7 +8,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Drinks',
+      //name: 'Drinks', //also doesnt seem necessary
       component: Drinks
     }
   ]
