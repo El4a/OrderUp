@@ -7,7 +7,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
-import { MdCard, MdButton, MdRipple } from 'vue-material/dist/components'
+import { MdCard, MdButton, MdRipple, MdBottomBar, MdIcon } from 'vue-material/dist/components'
 import 'vue-material/dist/vue-material.min.css'
 import './theme.scss'
 
@@ -17,6 +17,8 @@ Vue.use(MdButton)
 // Vue.use(MdTabs)
 Vue.use(MdCard)
 Vue.use(MdRipple)
+Vue.use(MdBottomBar)
+Vue.use(MdIcon)
 
 
 Vue.config.productionTip = false
