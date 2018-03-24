@@ -3,10 +3,10 @@
     <span class="close" @click="showDialog = false">
       <md-icon style="color: #fff">clear</md-icon>
     </span>
-    <md-dialog-title>{{obj.cocktailname}}</md-dialog-title>
-    
+    <md-dialog-title>{{obj.name}}</md-dialog-title>
+
     <div class="content">
-      <img src="../assets/hazel-cream.jpg" v-bind:alt="obj.cocktailname" />
+      <img src="/static/hazel-cream.jpg" v-bind:alt="obj.name" />
       <ul>
         <li v-for="i in obj.ingredients">{{i}}</li>
       </ul>

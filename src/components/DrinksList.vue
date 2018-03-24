@@ -1,149 +1,13 @@
 <template>
   <div id="list">
     <div class="md-layout md-gutter">
-      <div class="md-layout-item md-size-25 md-small-size-33 md-xsmall-size-50">
+      <div class="md-layout-item md-size-25 md-small-size-33 md-xsmall-size-50" v-for="drink in drinks">
         <div class="drink-wrapper">
           <div class="img-wrapper">
-             <img class="drink-img" src="../assets/pintje.jpg" alt="pintje"/>
+             <img class="drink-img" v-bind:src="'/static/'+drink.img" v-bind:alt="drink.name"/>
           </div>     
-          <div class="drink-name">Pintje</div>
+          <div class="drink-name">{{drink.name}}</div>
           </div>
-      </div>
-      <div class="md-layout-item md-size-25 md-small-size-33 md-xsmall-size-50">
-         <div class="drink-wrapper">
-           <div class="img-wrapper">
-            <img class="drink-img" src="../assets/tea.jpeg" alt="tea"/>
-           </div>
-          <div class="drink-name">Thee</div>
-         </div>
-      </div>
-      <div class="md-layout-item md-size-25 md-small-size-33 md-xsmall-size-50">
-         <div class="drink-wrapper">
-           <div class="img-wrapper">
-          <img class="drink-img" src="../assets/coffee.jpeg" alt="Koffie"/>
-          </div>
-          <div class="drink-name">Koffie</div>
-         </div>
-      </div>
-      <div class="md-layout-item md-size-25 md-small-size-33 md-xsmall-size-50">
-         <div class="drink-wrapper">
-           <div class="img-wrapper">
-            <img class="drink-img" src="../assets/red-wine.jpeg" alt="rode wijn"/>
-            </div>
-            <div class="drink-name">Rode wijn</div>
-         </div>
-      </div>
-      <div class="md-layout-item md-size-25 md-small-size-33 md-xsmall-size-50">
-        <div class="drink-wrapper">
-          <div class="img-wrapper">
-          <img class="drink-img" src="../assets/white-wine.jpg" alt="witte wijn"/>
-          </div>
-          <div class="drink-name">Witte wijn</div>
-        </div>
-      </div>
-      <div class="md-layout-item md-size-25 md-small-size-33 md-xsmall-size-50">
-         <div class="drink-wrapper">
-           <div class="img-wrapper">
-            <img class="drink-img" src="../assets/cava.png" alt="cava"/>
-            </div>
-            <div class="drink-name">Cava</div>
-         </div>
-      </div>
-      <div class="md-layout-item md-size-25 md-small-size-33 md-xsmall-size-50">
-          <div class="drink-wrapper">
-            <div class="img-wrapper">
-                        <img class="drink-img" src="../assets/duvel.jpg" alt="duvel"/>
-                        </div>
-            <div class="drink-name">Duvel</div>
-          </div>
-      </div>
-      <div class="md-layout-item md-size-25 md-small-size-33 md-xsmall-size-50">
-         <div class="drink-wrapper">
-           <div class="img-wrapper">
-           <img class="drink-img" src="../assets/mojito.jpg" alt="mojito"/>
-           </div>
-            <div class="drink-name">Mojito</div>
-         </div>
-      </div>
-      <div class="md-layout-item md-size-25 md-small-size-33 md-xsmall-size-50">
-        <div class="drink-wrapper">
-          <div class="img-wrapper">
-          <img class="drink-img" src="../assets/screwdriver.jpg" alt="wodka orange"/>
-          </div>
-          <div class="drink-name">Wodka Orange</div>
-        </div>
-      </div>
-      <div class="md-layout-item md-size-25 md-small-size-33 md-xsmall-size-50">
-         <div class="drink-wrapper">
-           <div class="img-wrapper">
-           <img class="drink-img" src="../assets/gin-tonic.jpg" alt="gin tonic"/>
-           </div>
-            <div class="drink-name">Gin Tonic</div>
-         </div>
-      </div>
-      <div class="md-layout-item md-size-25 md-small-size-33 md-xsmall-size-50">
-        <div class="drink-wrapper">
-          <div class="img-wrapper">
-           <img class="drink-img" src="../assets/long-island-ice-tea.jpeg" alt="longisland ice-tea"/>
-           </div>
-            <div class="drink-name">Longisland ice-tea</div>
-        </div>
-      </div>
-      <div class="md-layout-item md-size-25 md-small-size-33 md-xsmall-size-50">
-         <div class="drink-wrapper">
-           <div class="img-wrapper">
-           <img class="drink-img" src="../assets/cuba-libre.jpg" alt="cuba libre"/>
-           </div>
-            <div class="drink-name">Cuba Libre</div>
-         </div>
-      </div>
-      <div class="md-layout-item md-size-25 md-small-size-33 md-xsmall-size-50">
-         <div class="drink-wrapper">
-           <div class="img-wrapper">
-           <img class="drink-img" src="../assets/caipirinha.jpeg" alt="Caipirinha"/>
-           </div>
-            <div class="drink-name">Caipirinha</div>
-         </div>
-      </div>
-      <div class="md-layout-item md-size-25 md-small-size-33 md-xsmall-size-50">
-         <div class="drink-wrapper">
-           <div class="img-wrapper">
-           <img class="drink-img" src="../assets/caprioska.jpg" alt="Caprioska"/>
-           </div>
-            <div class="drink-name">Caprioska</div>
-         </div>
-      </div>
-       <div class="md-layout-item md-size-25 md-small-size-33 md-xsmall-size-50">
-         <div class="drink-wrapper">
-           <div class="img-wrapper">
-           <img class="drink-img" src="../assets/delight.jpg" alt="Raspberry Delight"/>
-           </div>
-            <div class="drink-name">Raspberry Delight</div>
-         </div>
-      </div>
-       <div class="md-layout-item md-size-25 md-small-size-33 md-xsmall-size-50">
-         <div class="drink-wrapper">
-           <div class="img-wrapper">
-           <img class="drink-img" src="../assets/margarita.jpg" alt="Margarita"/>
-           </div>
-            <div class="drink-name">Margarita</div>
-         </div>
-      </div>
-      <div class="md-layout-item md-size-25 md-small-size-33 md-xsmall-size-50">
-         <div class="drink-wrapper">
-           <div class="img-wrapper">
-           <img class="drink-img" src="../assets/mimosa.jpg" alt="mimosa"/>
-           </div>
-            <div class="drink-name">Mimosa</div>
-         </div>
-      </div>
-      <div class="md-layout-item md-size-25 md-small-size-33 md-xsmall-size-50">
-         <div class="drink-wrapper" v-on:click="showModal=true">
-           <div class="img-wrapper">
-           <img class="drink-img" src="../assets/hazel-cream.jpg" alt="hazel cream"/>
-           </div>
-            <div class="drink-name">Hazel Cream</div>
-         </div>
       </div>
     </div>
     <div class="disclaimer">DISCLAIMER: Nothing will look like its picture</div>
@@ -160,15 +24,124 @@
       return {
         showModal: false, //TODO: toggle this on opening and closing?
         tempfakeObject: {
-          cocktailname: 'Hazel Cream',
+          name: 'Hazel Cream',
           description: "Nostrud ea duis dolore in pariatur aliquip anim ad aliquip sint duis velit do laboris.",
           img: 'hazel-cream.jpg',
           ingredients: ['wodka', 'room', 'kahlua', 'frangelico']
         }
       }
     },
-    methods: {
-     
+    created: function() {
+      this.drinks = [
+         {
+          name: 'Pintje',
+          description: "Simpel, dorstlessend, traditioneel. Jupiler, apache-helicopters weten waarom.",
+          img: 'pintje.jpg',
+          ingredients: ['water', 'hop', '???']
+        },
+        {
+          name: 'Duvel',
+          description: "'Pff pintjes zijn voor de zwakkelingen. Ik drink enkel Duvel, zoals échte venten' - De typische loser die direct plat gaat.",
+          img: 'duvel.jpg',
+          ingredients: ['water', 'thee']
+        },
+        {
+          name: 'Thee',
+          description: "Warm water met een smaakje. Standaard: Rooibos! Indien iets anders gewenst: come see me.",
+          img: 'tea.jpeg',
+          ingredients: ['water', 'thee']
+        },
+         {
+          name: 'Koffie',
+          description: "'t Is echt héél brakke (oplos)koffie, maar meh caffeine I guess.",
+          img: 'coffee.jpeg',
+          ingredients: ['water', 'koffie']
+        },
+        {
+          name: 'Witte wijn',
+          description: "Als de wijn gaet in den man, Leyt de wijsheyt in de kan.",
+          img: 'white-wine.jpg',
+          ingredients: ['druivennat']
+        },
+        {
+          name: 'Rode wijn',
+          description: "Zoals witte wijn, maar beter.",
+          img: 'red-wine.jpeg',
+          ingredients: ['druivennat', 'druivenschil']
+        },
+        {
+          name: 'Cava',
+          description: "Bubbels! Nee Lisa sorry, 't is geen echte champagne.",
+          img: 'cava.png',
+          ingredients: ['???']
+        },
+        {
+          name: 'Mimosa',
+          description: "Bubbels! Nee Lisa sorry, 't is geen echte champagne.",
+          img: 'mimosa.jpg',
+          ingredients: ['Cava', 'Sinaasappelsap']
+        },
+        {
+          name: 'Wodka Orange',
+          description: "Voor dat extra beetje vitamine C.",
+          img: 'screwdriver.jpg',
+          ingredients: ['Wodka', 'Sinaasappelsap']
+        },
+        {
+          name: 'Cuba Libre',
+          description: "",
+          img: 'cuba-libre.jpg',
+          ingredients: ['Bruine rum', 'Cola']
+        },
+        {
+          name: 'Gin Tonic',
+          description: "Aah, de hype van 2014. Maar volgens HLN zet deze trend zich ook komende zomer weer verder!",
+          img: 'gin-tonic.jpg',
+          ingredients: ['Gin', 'Tonic']
+        },
+        {
+          name: 'Mojito',
+          description: "",
+          img: 'mojito.jpg',
+          ingredients: ['Witte rum', 'Munt', 'Rietsuiker', 'Limoen', 'Bruiswater']
+        },
+        {
+          name: 'Caprioska',
+          description: "Niet te verwarren met een Caipirinha.",
+          img: 'caprioska.jpg',
+          ingredients: ['Wodka', 'Limoen', 'Rietsuiker']
+        },
+        {
+          name: 'Caipirinha',
+          description: "Niet te verwarren met een Caprioska.",
+          img: 'caipirinha.jpeg',
+          ingredients: ['Witte rum', 'Limoen', 'Rietsuiker']
+        },
+        {
+          name: 'Margarita',
+          description: "Niet de pizza.",
+          img: 'margarita.jpg',
+          ingredients: ['Tequila', 'Triple sec', 'Limoen']
+        },
+        {
+          name: 'Long Island Iced Tea',
+          description: "Voor zij die van plan zijn te blijven slapen. Bestaat uit 40% alcohol en 60% kater.",
+          img: 'long-island-ice-tea.jpeg',
+          ingredients: ['Wodka', 'Gin', 'Rum', 'Tequila', 'Triple Sec', 'Citroen', 'Cola']
+        },
+        {
+          name: 'Raspberry Delight',
+          description: "Dit bevat fruit. Kan jij raden welk?",
+          img: 'delight.jpg',
+          ingredients: ['Rum', 'Triple Sec', 'Citroensap', 'Sinaasappelsap', 'Frambozen aka Raspberry']
+        },
+        {
+          name: 'Hazel Cream',
+          description: "Laat ons eerlijk zijn: dit is gewoon een dessert met drank in. Caloriebom van het genre: hierna 2 dagen best niks meer eten om te compenseren.",
+          img: 'hazel-cream.jpg',
+          ingredients: ['Wodka', 'Room', 'Kahlua', 'Frangelico']
+        }
+      ]
     },
      components: {
       'order-modal': Order
