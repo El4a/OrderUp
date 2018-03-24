@@ -1,8 +1,8 @@
 <template>
   <div id="list">
     <div class="md-layout md-gutter">
-      <div class="md-layout-item md-size-25 md-small-size-33 md-xsmall-size-50" v-for="drink in drinks">
-        <div class="drink-wrapper">
+      <div class="md-layout-item md-size-25 md-small-size-33 md-xsmall-size-50" v-for="(drink, index) in drinks">
+        <div class="drink-wrapper" @click="showModal=true; currentDrink = index">
           <div class="img-wrapper">
              <img class="drink-img" v-bind:src="'/static/'+drink.img" v-bind:alt="drink.name"/>
           </div>     
@@ -10,8 +10,8 @@
           </div>
       </div>
     </div>
-    <div class="disclaimer">DISCLAIMER: Nothing will look like its picture</div>
-    <order-modal v-bind:showDialog="showModal" v-bind:obj="tempfakeObject"></order-modal>
+    <order-modal v-bind:showDialog="showModal" v-bind:obj="drinks[currentDrink]"></order-modal>
+    <div class="disclaimer">DISCLAIMER: Nothing will look like its picture</div> 
   </div>
 </template>
 
@@ -22,7 +22,8 @@
     name: 'Drinks', //works the same without this
     data() {
       return {
-        showModal: false, //TODO: toggle this on opening and closing?
+        showModal: false, 
+        currentDrink: 0, //wrong pattern that this needs to be initialized?
         tempfakeObject: {
           name: 'Hazel Cream',
           description: "Nostrud ea duis dolore in pariatur aliquip anim ad aliquip sint duis velit do laboris.",
@@ -77,7 +78,7 @@
         },
         {
           name: 'Mimosa',
-          description: "Bubbels! Nee Lisa sorry, 't is geen echte champagne.",
+          description: "Het sociaal aanvaardbare drankje om 11u 's morgens.",
           img: 'mimosa.jpg',
           ingredients: ['Cava', 'Sinaasappelsap']
         },
