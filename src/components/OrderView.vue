@@ -1,6 +1,6 @@
 <template>
   <md-dialog :md-active.sync="showDialog" :md-fullscreen=false>
-    <span class="close" @click="showDialog = false">
+    <span class="close" @click="showDialog = false; hasName = true;">
       <md-icon style="color: #fff">clear</md-icon>
     </span>
     <md-dialog-title>{{obj.name}}</md-dialog-title>
@@ -34,9 +34,8 @@
     props: ['showDialog', 'obj'],
     data() {
       return {
-        imgsrc: "../assets/" + this.obj.img, //for some reason this doenst work on the image with v-bind -- weird
         name: null,
-        hasName: true
+        hasName: true //why doesnt this reset when closing the dialog and opening the next? no its done manually ^
       }
     },
     methods: {
@@ -70,6 +69,7 @@
 
   img {
     max-width: 55%;
+    max-height: 25vh;
     float: left;
     margin-top: .5rem;
     margin-left: -1.5rem;
