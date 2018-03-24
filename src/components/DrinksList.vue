@@ -4,7 +4,7 @@
       <div class="md-layout-item md-size-25 md-small-size-33 md-xsmall-size-50">
         <div class="drink-wrapper">
           <div class="img-wrapper">
-             <img class="drink-img" src="../assets/pintje.jpg" alt="pintje" @click=""/>
+             <img class="drink-img" src="../assets/pintje.jpg" alt="pintje"/>
           </div>     
           <div class="drink-name">Pintje</div>
           </div>
@@ -138,15 +138,16 @@
          </div>
       </div>
       <div class="md-layout-item md-size-25 md-small-size-33 md-xsmall-size-50">
-         <div class="drink-wrapper">
+         <div class="drink-wrapper" v-on:click="showModal=true">
            <div class="img-wrapper">
-           <img class="drink-img" src="../assets/hazel-cream.jpg" alt="hazel creme"/>
+           <img class="drink-img" src="../assets/hazel-cream.jpg" alt="hazel cream"/>
            </div>
-            <div class="drink-name">Hazel Creme</div>
+            <div class="drink-name">Hazel Cream</div>
          </div>
       </div>
     </div>
-    <order-modal></order-modal>
+    <div class="disclaimer">DISCLAIMER: Nothing will look like its picture</div>
+    <order-modal v-bind:showDialog="showModal" v-bind:obj="tempfakeObject"></order-modal>
   </div>
 </template>
 
@@ -157,8 +158,17 @@
     name: 'Drinks', //works the same without this
     data() {
       return {
-
+        showModal: false, //TODO: toggle this on opening and closing?
+        tempfakeObject: {
+          cocktailname: 'Hazel Cream',
+          description: "Nostrud ea duis dolore in pariatur aliquip anim ad aliquip sint duis velit do laboris.",
+          img: 'hazel-cream.jpg',
+          ingredients: ['wodka', 'room', 'kahlua', 'frangelico']
+        }
       }
+    },
+    methods: {
+     
     },
      components: {
       'order-modal': Order
@@ -209,6 +219,17 @@
 
       }
     }
+  }
+
+  .disclaimer {
+    text-align: center;
+    background-color: grey;
+    margin-left: -5vw;
+    margin-right: -5vw;
+    margin-bottom: -5vw;
+    padding: .5rem;
+    color: #fff;
+    font-weight: bold;
   }
 
   @media (min-width: 600px) {
