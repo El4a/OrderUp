@@ -6,7 +6,7 @@
     <md-dialog-title>{{obj.name}}</md-dialog-title>
 
     <div class="content">
-      <img src="/static/hazel-cream.jpg" v-bind:alt="obj.name" />
+      <img v-bind:src="'/static/'+obj.img" v-bind:alt="obj.name" />
       <ul>
         <li v-for="i in obj.ingredients">{{i}}</li>
       </ul>
@@ -69,7 +69,7 @@
   }
 
   img {
-    width: 55%;
+    max-width: 55%;
     float: left;
     margin-top: .5rem;
     margin-left: -1.5rem;
@@ -78,11 +78,11 @@
 
   ul {
     float: left;
+    max-width: 50%;
   }
 
   p {
     clear: both;
-
   }
 
   .content {
