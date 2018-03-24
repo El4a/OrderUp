@@ -1,29 +1,31 @@
 <template>
-    <md-dialog :md-active.sync="showDialog" :md-fullscreen=false>
-      <span class="close" @click="showDialog = false"><md-icon style="color: #fff">clear</md-icon></span>
-      <md-dialog-title>{{obj.cocktailname}}</md-dialog-title>
-      <div class="content">
-        <img src="../assets/hazel-cream.jpg" v-bind:alt="obj.cocktailname"/>
-       <ul>
-         <li v-for="i in obj.ingredients">{{i}}</li>
-        </ul>
-        
-        <p>
-          {{obj.description}}
-        </p>
-       
-       <md-field :class="errorClass">
+  <md-dialog :md-active.sync="showDialog" :md-fullscreen=false>
+    <span class="close" @click="showDialog = false">
+      <md-icon style="color: #fff">clear</md-icon>
+    </span>
+    <md-dialog-title>{{obj.cocktailname}}</md-dialog-title>
+    
+    <div class="content">
+      <img src="../assets/hazel-cream.jpg" v-bind:alt="obj.cocktailname" />
+      <ul>
+        <li v-for="i in obj.ingredients">{{i}}</li>
+      </ul>
+      <p>
+        {{obj.description}}
+      </p>
+
+      <md-field :class="errorClass">
         <label>Enter your name to order</label>
         <md-input v-model="name" required></md-input>
         <span class="md-helper-text">*Idiotic names will be ignored</span>
         <span class="md-error">There is an error</span>
       </md-field>
-      </div>
-       
-      <md-dialog-actions>
-        <md-button class="md-primary md-raised md-dense" @click="sendOrder()">Order</md-button>
-      </md-dialog-actions>
-    </md-dialog>
+    </div>
+
+    <md-dialog-actions>
+      <md-button class="md-primary md-raised md-dense" @click="sendOrder()">Order</md-button>
+    </md-dialog-actions>
+  </md-dialog>
 </template>
 
 <script>
@@ -39,19 +41,19 @@
     },
     methods: {
       sendOrder() {
-        (this.name !== null && this.name !== '') ? this.hasName = true : this.hasName = false;
+        (this.name !== null && this.name !== '') ? this.hasName = true: this.hasName = false;
 
         if (this.hasName === true) {
           //TODO make http req
 
           this.showDialog = false;
-          
+
           //TODO route to order view
         }
       }
     },
     computed: {
-      errorClass () {
+      errorClass() {
         return {
           'md-invalid': !this.hasName
         }
@@ -62,11 +64,10 @@
 </script>
 
 <style lang="scss" scoped>
-
   .md-dialog {
     overflow: visible;
   }
-  
+
   img {
     width: 55%;
     float: left;
@@ -78,6 +79,7 @@
   ul {
     float: left;
   }
+
   p {
     clear: both;
 
@@ -98,5 +100,6 @@
     border-radius: 50%;
     padding: .2rem;
   }
+
 </style>
 
