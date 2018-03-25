@@ -1,18 +1,16 @@
 <template>
-  <md-dialog :md-active.sync="showDialog" :md-fullscreen=false @md-closed="close">
-    <span class="close" @click="showDialog = false">
+  <md-dialog :md-active.sync="showDialog" :md-fullscreen=false @md-closed="onClosed">
+    <span class="close" @click="close">
       <md-icon style="color: #fff">clear</md-icon>
     </span>
-    <md-dialog-title>{{obj.name}}</md-dialog-title>
+    <md-dialog-title>{{drink.name}}</md-dialog-title>
 
     <div class="content">
-      <img v-bind:src="'/static/'+obj.img" v-bind:alt="obj.name" />
+      <img v-bind:src="'/static/'+ drink.img" v-bind:alt="drink.name"/>
       <ul>
-        <li v-for="i in obj.ingredients">{{i}}</li>
+        <li v-for="ingredient in drink.ingredients">{{ingredient}}</li>
       </ul>
-      <p>
-        {{obj.description}}
-      </p>
+      <p>{{drink.description}}</p>
 
       <md-field :class="errorClass">
         <label>Enter your name to order</label>
@@ -30,8 +28,7 @@
 
 <script>
   export default {
-    name: 'order',
-    props: ['obj'],
+    props: ['drink'],
     data() {
       return {
         showDialog: true,
@@ -42,27 +39,24 @@
     created: function() {
       //check for name cookie called "user"
       let match = document.cookie.match(new RegExp('(^| )user=([^;]+)'));
-      if (match) { 
+      if (match) {
         this.name = match[2];
       }
     },
     methods: {
-      close() {
-        this.$emit('closed');
-      },
       sendOrder() {
-        (this.name !== null && this.name !== '') ? this.hasName = true: this.hasName = false;
-
-        if (this.hasName === true) {
-          //TODO make http req
-
-          //set cookie
-          document.cookie = "user="+this.name + ";expires=Sun, 01 Apr 2018 12:00:00 UTC";
-
-          this.showDialog = false;
-
-          //TODO route to order view
+        this.hasName = !!this.name;
+        if (this.hasName) {
+          document.cookie = "user=" + this.name + ";expires=Sun, 01 Apr 2018 12:00:00 UTC";
+          this.close();
+          //TODO make http req and route to order view
         }
+      },
+      close() {
+        this.showDialog = false;
+      },
+      onClosed() {
+        this.$emit('closed');
       }
     },
     computed: {
@@ -73,7 +67,6 @@
       }
     }
   }
-
 </script>
 
 <style lang="scss" scoped>
@@ -114,6 +107,4 @@
     border-radius: 50%;
     padding: .2rem;
   }
-
 </style>
-
