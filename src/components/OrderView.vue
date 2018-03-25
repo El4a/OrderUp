@@ -27,6 +27,8 @@
 </template>
 
 <script>
+  import orderService from '@/data/OrderService';
+
   export default {
     props: ['drink'],
     data() {
@@ -42,6 +44,7 @@
       if (match) {
         this.name = match[2];
       }
+      orderService.read().then(data => console.log(data));
     },
     methods: {
       sendOrder() {
