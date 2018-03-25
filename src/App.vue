@@ -22,7 +22,7 @@
 
 <style lang="scss" scoped>
   #app {
-    background-color: #EEEEEE;
+    background-color: rgba(233,233,233, 1);
     min-height: 100vh;
   }
 
