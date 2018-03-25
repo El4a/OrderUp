@@ -1,4 +1,8 @@
 <template>
+<div class="container">
+  <div class="spinner" v-if="spinner">
+    <md-progress-spinner class="md-accent" :md-diameter="50" md-mode="indeterminate" :md-stroke="3"></md-progress-spinner>
+  </div>
   <div class="md-layout md-gutter">
     <div class="md-layout-item" v-for="order in orders">
       <md-card>
@@ -16,6 +20,7 @@
       </md-card>
     </div>
   </div>
+  </div>
 </template>
 
 <script>
@@ -25,7 +30,8 @@
   export default {
     data() {
       return {
-        orders: []
+        orders: [],
+        spinner: true
       }
     },
     created: function () {
@@ -40,16 +46,20 @@
               drink: drinkService.findById(d.drinkId)
             }
           })
-        });
+        })
+        .then(() => this.spinner = false);
     }
   }
 
 </script>
 
 <style lang="scss" scoped>
+
+.container {
+ padding: 5vw;
+}
   .md-layout {
     flex-direction: column;
-    padding: 5vw;
 
     .md-layout-item {
       margin-top: .5rem;
@@ -78,6 +88,11 @@
     bottom: 0;
     right: 0;
   }
+
+  .spinner {
+    text-align: center;
+  }
+
 
 </style>
 
