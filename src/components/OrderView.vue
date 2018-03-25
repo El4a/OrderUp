@@ -38,21 +38,20 @@
         hasName: true
       }
     },
-    created: function() {
+    created: function () {
       //check for name cookie called "user"
       let match = document.cookie.match(new RegExp('(^| )user=([^;]+)'));
       if (match) {
         this.name = match[2];
       }
-      orderService.read().then(data => console.log(data));
     },
     methods: {
       sendOrder() {
         this.hasName = !!this.name;
         if (this.hasName) {
-          this.setUserCookie();
-          this.close();
-          //TODO make http req and route to order view
+          orderService.order(this.drink.id, this.name)
+            .then(() => this.setUserCookie())
+            .then(() => this.close());
         }
       },
       setUserCookie() {
