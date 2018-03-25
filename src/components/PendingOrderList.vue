@@ -5,6 +5,7 @@
   </div>
   <div class="md-layout md-gutter">
     <div class="md-layout-item" v-for="order in orders">
+       <div v-bind:class=" {overlay: order.beingRemoved }"></div>
       <md-card>
         <md-card-header>
           <md-card-media>
@@ -15,7 +16,7 @@
             <div class="md-subhead">{{order.name}}</div>
           </md-card-header-text>
         </md-card-header>
-        <md-button class="md-accent md-raised md-dense" v-on:click="onAfgeleverd(order)">Ontvangen</md-button>
+        <md-button class="md-accent md-raised md-dense" v-on:click="onAfgeleverd(order)" v-bind:disabled="order.beingRemoved">Ontvangen</md-button>
       </md-card>
     </div>
   </div>
@@ -39,6 +40,7 @@
           .then(orders => orders.filter(order => !order.afgeleverd))
           .then(orders => orders.map(order => {
             return {
+              beingRemoved: false,
               id: order.id,
               name: order.name,
               drink: drinkService.findById(order.drinkId)};}))
@@ -46,6 +48,7 @@
           .then(() => this.spinner = false);
       },
       onAfgeleverd(order) {
+        order.beingRemoved = true;
         orderService.afgeleverd(order.id)
           .then(() => this.refreshOrders());
       }
@@ -68,6 +71,7 @@
     .md-layout-item {
       margin-top: .5rem;
       margin-bottom: .5rem;
+      position: relative;
     }
   }
 
@@ -97,6 +101,19 @@
     text-align: center;
   }
 
+.overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 4;
+    overflow: hidden;
+    background: rgba(0,0,0,.15);
+    transition: .35s cubic-bezier(.4,0,.2,1);
+    transition-property: opacity;
+    will-change: opacity;
+}
 
 </style>
 
