@@ -59,10 +59,10 @@
 
     .drink-wrapper {
       border-radius: 15%;
-      border: .3em solid #00796B;
+      border: .2rem solid #00796B;
       background-color: #00796B;
       height: 100%;
-      font-size: 1.1em;
+      font-size: 1.1rem;
       text-align: center;
 
       .img-wrapper {
@@ -103,7 +103,7 @@
       height: 33vw;
 
       .drink-wrapper {
-        font-size: 2rem;
+        font-size: 1.5rem;
 
         .drink-name {
           padding-top: .55em;
