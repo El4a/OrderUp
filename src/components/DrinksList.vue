@@ -61,11 +61,9 @@
     .drink-wrapper {
       border-radius: 15%;
       border: .5em solid #00796B;
-      //background-color: white;
       background-color: #00796B;
       height: 100%;
       font-size: 1.1em;
-      //color: white;
       text-align: center;
 
       .img-wrapper {
@@ -83,9 +81,7 @@
       }
 
       .drink-name {
-        //background-color: #00796B;
         color: white;
-        //padding: .2em;
         padding-top: .4em;
 
       }
