@@ -13,8 +13,6 @@ import './theme.scss'
 
 
 Vue.use(MdButton)
-// Vue.use(MdContent)
-// Vue.use(MdTabs)
 Vue.use(MdCard)
 Vue.use(MdRipple)
 Vue.use(MdBottomBar)
