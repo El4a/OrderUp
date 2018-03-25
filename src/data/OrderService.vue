@@ -16,9 +16,17 @@
         .then(response => response.data);
     },
     order(drinkId, name) {
-      const newOrder = {drinkId, name, "afgeleverd": false};
+      const newOrder = {id: new Date().valueOf(), drinkId, name, "afgeleverd": false};
       return this.read()
         .then(orders => Array.of(...orders, newOrder))
+        .then(orders => JSONBIN_HTTP.put('', orders))
+    },
+    afgeleverd(orderId) {
+      return this.read()
+        .then(orders => {
+          orders.find(order => order.id === orderId).afgeleverd = true;
+          return orders;
+        })
         .then(orders => JSONBIN_HTTP.put('', orders))
     }
   };

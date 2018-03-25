@@ -15,8 +15,7 @@
             <div class="md-subhead">{{order.name}}</div>
           </md-card-header-text>
         </md-card-header>
-        <md-button  class="md-accent md-raised md-dense">
-          Ontvangen</md-button>
+        <md-button class="md-accent md-raised md-dense" v-on:click="onAfgeleverd(order)">Ontvangen</md-button>
       </md-card>
     </div>
   </div>
@@ -34,20 +33,25 @@
         spinner: true
       }
     },
-    created: function () {
-      orderService.read()
-        .then(data => {
-           return data.filter(d => !d.afgeleverd);
-        })
-        .then(data => {
-          this.orders = data.map((d) => {
+    methods: {
+      refreshOrders() {
+        orderService.read()
+          .then(orders => orders.filter(order => !order.afgeleverd))
+          .then(orders => orders.map(order => {
             return {
-              name: d.name,
-              drink: drinkService.findById(d.drinkId)
-            }
-          })
-        })
-        .then(() => this.spinner = false);
+              id: order.id,
+              name: order.name,
+              drink: drinkService.findById(order.drinkId)};}))
+          .then(orders => this.orders = orders)
+          .then(() => this.spinner = false);
+      },
+      onAfgeleverd(order) {
+        orderService.afgeleverd(order.id)
+          .then(() => this.refreshOrders());
+      }
+    },
+    created: function () {
+      this.refreshOrders();
     }
   }
 
@@ -64,14 +68,14 @@
     .md-layout-item {
       margin-top: .5rem;
       margin-bottom: .5rem;
-    } 
+    }
   }
 
   .md-card-header {
     padding: .5rem;
   }
 
-  .md-card-media  {
+  .md-card-media {
     text-align: center;
     margin-left: 0;
     margin-right: .5rem;

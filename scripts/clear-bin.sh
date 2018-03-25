@@ -6,4 +6,4 @@ curl -X PUT \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
   -H "secret-key: ${JSONBIN_API_TOKEN}" \
-  -d '[{"drinkId": 1, "name": "Dieter Van Peer", "afgeleverd": true}]'
+  -d '[{"id": 123456, "drinkId": 1, "name": "Dieter Van Peer", "afgeleverd": true}]'
