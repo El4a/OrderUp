@@ -5,13 +5,16 @@
         <div class="drink-wrapper" @click="showModal=true; currentDrink = index">
           <div class="img-wrapper">
              <img class="drink-img" v-bind:src="'/static/'+drink.img" v-bind:alt="drink.name"/>
-          </div>     
+          </div>
           <div class="drink-name">{{drink.name}}</div>
           </div>
       </div>
     </div>
-    <order-modal v-bind:showDialog="showModal" v-bind:obj="drinks[currentDrink]"></order-modal>
-    <div class="disclaimer">DISCLAIMER: Nothing will look like its picture</div> 
+    <order-modal v-if="showModal"
+                 v-on:closed="showModal = false"
+                 v-bind:obj="drinks[currentDrink]">
+    </order-modal>
+    <div class="disclaimer">DISCLAIMER: Nothing will look like its picture</div>
   </div>
 </template>
 
@@ -22,7 +25,7 @@
     name: 'Drinks', //works the same without this
     data() {
       return {
-        showModal: false, 
+        showModal: false,
         currentDrink: 0, //wrong pattern that this needs to be initialized?
         tempfakeObject: {
           name: 'Hazel Cream',
@@ -209,7 +212,7 @@
   @media (min-width: 600px) {
     .md-layout-item {
       height: 33vw;
-      
+
       .drink-wrapper {
         font-size: 2rem;
 

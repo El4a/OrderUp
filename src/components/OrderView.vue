@@ -1,6 +1,6 @@
 <template>
-  <md-dialog :md-active.sync="showDialog" :md-fullscreen=false>
-    <span class="close" @click="showDialog = false; hasName = true;">
+  <md-dialog :md-active.sync="showDialog" :md-fullscreen=false @md-closed="close">
+    <span class="close" @click="showDialog = false">
       <md-icon style="color: #fff">clear</md-icon>
     </span>
     <md-dialog-title>{{obj.name}}</md-dialog-title>
@@ -31,14 +31,18 @@
 <script>
   export default {
     name: 'order',
-    props: ['showDialog', 'obj'],
+    props: ['obj'],
     data() {
       return {
+        showDialog: true,
         name: null,
-        hasName: true //why doesnt this reset when closing the dialog and opening the next? no its done manually ^
+        hasName: true
       }
     },
     methods: {
+      close() {
+        this.$emit('closed');
+      },
       sendOrder() {
         (this.name !== null && this.name !== '') ? this.hasName = true: this.hasName = false;
 
