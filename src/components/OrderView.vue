@@ -39,6 +39,13 @@
         hasName: true
       }
     },
+    created: function() {
+      //check for name cookie called "user"
+      let match = document.cookie.match(new RegExp('(^| )user=([^;]+)'));
+      if (match) { 
+        this.name = match[2];
+      }
+    },
     methods: {
       close() {
         this.$emit('closed');
@@ -48,6 +55,9 @@
 
         if (this.hasName === true) {
           //TODO make http req
+
+          //set cookie
+          document.cookie = "user="+this.name + ";expires=Sun, 01 Apr 2018 12:00:00 UTC";
 
           this.showDialog = false;
 
