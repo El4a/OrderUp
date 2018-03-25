@@ -3,6 +3,13 @@
   <div class="spinner" v-if="spinner">
     <md-progress-spinner class="md-accent" :md-diameter="50" md-mode="indeterminate" :md-stroke="3"></md-progress-spinner>
   </div>
+   <md-empty-state
+    v-if="orders.length === 0 && !spinner"
+    class="md-accent"
+    md-icon="trending_down"
+    md-label="Drunkness is declining"
+    md-description="Order more biaaaaatchez and gets more drunkses">
+  </md-empty-state>
   <div class="md-layout md-gutter">
     <div class="md-layout-item" v-for="order in orders">
        <div v-bind:class=" {overlay: order.beingRemoved }"></div>
