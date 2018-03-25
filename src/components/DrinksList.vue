@@ -1,8 +1,8 @@
 <template>
   <div id="list">
     <div class="md-layout md-gutter">
-      <div class="md-layout-item md-size-25 md-small-size-33 md-xsmall-size-50" v-for="(drink, index) in drinks">
-        <div class="drink-wrapper" @click="showModal=true; currentDrink = index">
+      <div class="md-layout-item md-size-25 md-small-size-33 md-xsmall-size-50" v-for="drink in drinks">
+        <div class="drink-wrapper" @click="selectDrink(drink)">
           <div class="img-wrapper">
              <img class="drink-img" v-bind:src="'/static/'+drink.img" v-bind:alt="drink.name"/>
           </div>
@@ -12,7 +12,7 @@
     </div>
     <order-modal v-if="showModal"
                  v-on:closed="showModal = false"
-                 v-bind:obj="drinks[currentDrink]">
+                 v-bind:obj="currentDrink">
     </order-modal>
     <div class="disclaimer">DISCLAIMER: Nothing will look like its picture</div>
   </div>
@@ -26,14 +26,14 @@
     data() {
       return {
         showModal: false,
-        currentDrink: 0, //wrong pattern that this needs to be initialized?
-        tempfakeObject: {
-          name: 'Hazel Cream',
-          description: "Nostrud ea duis dolore in pariatur aliquip anim ad aliquip sint duis velit do laboris.",
-          img: 'hazel-cream.jpg',
-          ingredients: ['wodka', 'room', 'kahlua', 'frangelico']
-        }
+        currentDrink: null
       }
+    },
+    methods: {
+       selectDrink(drink) {
+         this.currentDrink = drink;
+         this.showModal=true;
+       }
     },
     created: function() {
       this.drinks = [
