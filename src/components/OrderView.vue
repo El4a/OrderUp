@@ -51,7 +51,8 @@
         if (this.hasName) {
           orderService.order(this.drink.id, this.name)
             .then(() => this.setUserCookie())
-            .then(() => this.close());
+            .then(() => this.close())
+            .then(() => this.$router.push('/orders'));
         }
       },
       setUserCookie() {
