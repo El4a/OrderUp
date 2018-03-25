@@ -37,12 +37,11 @@
       refreshOrders() {
         orderService.read()
           .then(orders => orders.filter(order => !order.afgeleverd))
-          .then(orders => orders.map(order => {
+          .then(orders => this.orders = orders.map(order => {
             return {
               id: order.id,
               name: order.name,
               drink: drinkService.findById(order.drinkId)};}))
-          .then(orders => this.orders = orders)
           .then(() => this.spinner = false);
       },
       onAfgeleverd(order) {
