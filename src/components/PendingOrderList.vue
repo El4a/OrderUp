@@ -1,48 +1,17 @@
 <template>
   <div class="md-layout md-gutter">
-    <div class="md-layout-item">
+    <div class="md-layout-item" v-for="order in orders">
       <md-card>
         <md-card-header>
           <md-card-media>
-            <img src="/static/red-wine.jpeg" alt="Rode wijn">
+            <img v-bind:src="'/static/'+order.drink.img" v-bind:alt="order.drink.name">
           </md-card-media>
           <md-card-header-text>
-            <div class="md-title">Rode wijn</div>
-            <div class="md-subhead">Dieter Van Peer</div>
+            <div class="md-title">{{order.drink.name}}</div>
+            <div class="md-subhead">{{order.name}}</div>
           </md-card-header-text>
         </md-card-header>
         <md-button  class="md-accent md-raised md-dense">
-          Ontvangen</md-button>
-      </md-card>
-    </div>
-    <div class="md-layout-item">
-      <md-card>
-        <md-card-header>
-          <md-card-media>
-            <img src="/static/coffee.jpeg" alt="Koffie">
-          </md-card-media>
-          <md-card-header-text>
-            <div class="md-title">Koffie</div>
-            <div class="md-subhead">De Bomma</div>
-          </md-card-header-text>
-        </md-card-header>
-        <md-button  class="md-accent md-raised md-dense">
-          Ontvangen</md-button>
-      </md-card>
-    </div>
-
-     <div class="md-layout-item">
-      <md-card>
-        <md-card-header>
-          <md-card-media>
-            <img src="/static/duvel.jpg" alt="Duvel">
-          </md-card-media>
-          <md-card-header-text>
-            <div class="md-title">Duvel</div>
-            <div class="md-subhead">De Bomma</div>
-          </md-card-header-text>
-        </md-card-header>
-         <md-button  class="md-accent md-raised md-dense">
           Ontvangen</md-button>
       </md-card>
     </div>
@@ -50,16 +19,28 @@
 </template>
 
 <script>
+  import orderService from '@/data/OrderService';
+  import drinkService from '@/data/DrinkService';
+
   export default {
     data() {
       return {
-
+        orders: []
       }
     },
     created: function () {
-      this.orders = [
-
-      ]
+      orderService.read()
+        .then(data => {
+           return data.filter(d => !d.afgeleverd);
+        })
+        .then(data => {
+          this.orders = data.map((d) => {
+            return {
+              name: d.name,
+              drink: drinkService.findById(d.drinkId)
+            }
+          })
+        });
     }
   }
 
@@ -96,7 +77,6 @@
     position: absolute;
     bottom: 0;
     right: 0;
-
   }
 
 </style>
