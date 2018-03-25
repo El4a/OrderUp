@@ -38,18 +38,19 @@
     data() {
       return {
         orders: [],
-        spinner: true
+        spinner: true,
+        pollingId: null
       }
     },
     methods: {
       refreshOrders() {
-        orderService.read()
+        return orderService.read()
           .then(orders => orders.filter(order => !order.afgeleverd))
           .then(orders => this.orders = orders.map(order => {
             return {
-              beingRemoved: false,
               id: order.id,
               name: order.name,
+              beingRemoved: false,
               drink: drinkService.findById(order.drinkId)};}))
           .then(() => this.spinner = false);
       },
@@ -59,11 +60,20 @@
           .then(() => this.refreshOrders());
       }
     },
-    created: function () {
+    created() {
       this.refreshOrders();
+    },
+    mounted() {
+      let refreshAndschedule = () => {
+        this.refreshOrders()
+          .then(() => this.pollingId = setTimeout(refreshAndschedule, 15000));
+      };
+      this.pollingId = setTimeout(refreshAndschedule, 15000);
+    },
+    beforeDestroy() {
+      clearTimeout(this.pollingId);
     }
   }
-
 </script>
 
 <style lang="scss" scoped>
