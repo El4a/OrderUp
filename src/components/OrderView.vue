@@ -47,10 +47,13 @@
       sendOrder() {
         this.hasName = !!this.name;
         if (this.hasName) {
-          document.cookie = "user=" + this.name + ";expires=Sun, 01 Apr 2018 12:00:00 UTC";
+          this.setUserCookie();
           this.close();
           //TODO make http req and route to order view
         }
+      },
+      setUserCookie() {
+        document.cookie = "user=" + this.name + ";expires=Sun, 01 Apr 2018 12:00:00 UTC";
       },
       close() {
         this.showDialog = false;
