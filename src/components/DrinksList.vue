@@ -4,14 +4,14 @@
       <div class="md-layout-item md-size-25 md-small-size-33 md-xsmall-size-50" v-for="drink in drinks">
         <div class="drink-wrapper" @click="selectDrink(drink)">
           <div class="img-wrapper">
-             <img class="drink-img" v-bind:src="'/static/'+drink.img" v-bind:alt="drink.name"/>
+            <img class="drink-img" v-bind:src="'/static/'+ drink.img" v-bind:alt="drink.name"/>
           </div>
           <div class="drink-name">{{drink.name}}</div>
-          </div>
+        </div>
       </div>
     </div>
     <order-modal v-if="showModal"
-                 v-on:closed="showModal = false"
+                 v-on:closed="closeModal"
                  v-bind:obj="currentDrink">
     </order-modal>
     <div class="disclaimer">DISCLAIMER: Nothing will look like its picture</div>
@@ -22,7 +22,6 @@
   import Order from '@/components/OrderView.vue';
 
   export default {
-    name: 'Drinks', //works the same without this
     data() {
       return {
         showModal: false,
@@ -30,14 +29,18 @@
       }
     },
     methods: {
-       selectDrink(drink) {
-         this.currentDrink = drink;
-         this.showModal=true;
-       }
+      selectDrink(drink) {
+        this.currentDrink = drink;
+        this.showModal = true;
+      },
+      closeModal() {
+        this.showModal = false;
+        this.currentDrink = null;
+      }
     },
-    created: function() {
+    created: function () {
       this.drinks = [
-         {
+        {
           name: 'Pintje',
           description: "Simpel, dorstlessend, traditioneel. Jupiler, apache-helicopters weten waarom.",
           img: 'pintje.jpg',
@@ -55,7 +58,7 @@
           img: 'tea.jpeg',
           ingredients: ['water', 'thee']
         },
-         {
+        {
           name: 'Koffie',
           description: "'t Is echt héél brakke (oplos)koffie, maar meh caffeine I guess.",
           img: 'coffee.jpeg',
@@ -147,7 +150,7 @@
         }
       ]
     },
-     components: {
+    components: {
       'order-modal': Order
     }
   }
@@ -156,9 +159,10 @@
 
 <style lang="scss">
 
-#list {
-  padding: 5vw;
-}
+  #list {
+    padding: 5vw;
+  }
+
   .md-layout-item {
     position: relative;
     height: 50vw;
@@ -190,7 +194,7 @@
 
       .drink-name {
         //background-color: #00796B;
-        color:white;
+        color: white;
         //padding: .2em;
         padding-top: .4em;
 
