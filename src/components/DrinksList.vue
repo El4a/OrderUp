@@ -60,7 +60,7 @@
 
     .drink-wrapper {
       border-radius: 15%;
-      border: .5em solid #00796B;
+      border: .3em solid #00796B;
       background-color: #00796B;
       height: 100%;
       font-size: 1.1em;
