@@ -11,9 +11,8 @@
             <div class="md-subhead">Dieter Van Peer</div>
           </md-card-header-text>
         </md-card-header>
-        <md-button  class="md-primary">
-          <md-icon>done</md-icon>
-          Klaar</md-button>
+        <md-button  class="md-accent md-raised md-dense">
+          Ontvangen</md-button>
       </md-card>
     </div>
     <div class="md-layout-item">
@@ -27,9 +26,8 @@
             <div class="md-subhead">De Bomma</div>
           </md-card-header-text>
         </md-card-header>
-        <md-button  class="md-primary">
-          <md-icon>done</md-icon>
-          Klaar</md-button>
+        <md-button  class="md-accent md-raised md-dense">
+          Ontvangen</md-button>
       </md-card>
     </div>
 
@@ -41,12 +39,11 @@
           </md-card-media>
           <md-card-header-text>
             <div class="md-title">Duvel</div>
-            <div class="md-subhead">Kevin</div>
+            <div class="md-subhead">De Bomma</div>
           </md-card-header-text>
         </md-card-header>
-        <md-button  class="md-primary">
-          <md-icon>done</md-icon>
-          Klaar</md-button>
+         <md-button  class="md-accent md-raised md-dense">
+          Ontvangen</md-button>
       </md-card>
     </div>
   </div>
@@ -99,6 +96,7 @@
     position: absolute;
     bottom: 0;
     right: 0;
+
   }
 
 </style>
