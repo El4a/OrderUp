@@ -14,14 +14,17 @@
 
       <md-field :class="errorClass">
         <label>Enter your name to order</label>
-        <md-input v-model="name" required></md-input>
-        <span class="md-helper-text">*Idiotic names will be ignored</span>
+        <md-input v-model="name" required maxlength="15"></md-input>
+        <span class="md-helper-text">*Idiotic names will not be served</span>
         <span class="md-error">There is an error</span>
       </md-field>
     </div>
 
     <md-dialog-actions>
-      <md-button class="md-primary md-raised md-dense" @click="sendOrder()">Order</md-button>
+      <md-button class="md-primary md-raised md-dense" @click="sendOrder()">
+        <span v-if="!spinner">Order</span>
+        <md-progress-spinner v-if="spinner" class="md-accent" :md-diameter="20" md-mode="indeterminate" :md-stroke="2"></md-progress-spinner>
+        </md-button>
     </md-dialog-actions>
   </md-dialog>
 </template>
@@ -35,7 +38,8 @@
       return {
         showDialog: true,
         name: null,
-        hasName: true
+        hasName: true,
+        spinner: false
       }
     },
     created: function () {
@@ -49,6 +53,7 @@
       sendOrder() {
         this.hasName = !!this.name;
         if (this.hasName) {
+          this.spinner = true;
           orderService.order(this.drink.id, this.name)
             .then(() => this.setUserCookie())
             .then(() => this.close())
