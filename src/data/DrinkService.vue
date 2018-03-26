@@ -17,7 +17,7 @@
     {
       id: 3,
       name: 'Thee',
-      description: "Warm water met een smaakje. Standaard: Rooibos! Indien iets anders gewenst: come see me.",
+      description: "Warm water met een smaakje. Standaard: Rooibos! Voor andere opties (honeybush, earl grey, iets men mango): come see me.",
       img: 'tea.jpeg',
       ingredients: ['water', 'thee']
     },
