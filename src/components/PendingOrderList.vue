@@ -8,7 +8,7 @@
     class="md-accent"
     md-icon="trending_down"
     md-label="Drunkness is declining"
-    md-description="Order more biaaaaatchez and gets more drunkses">
+    md-description="There are no more pending orders!">
   </md-empty-state>
   <div class="md-layout md-gutter">
     <div class="md-layout-item" v-for="order in orders">
