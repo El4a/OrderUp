@@ -14,7 +14,7 @@
                  v-on:closed="closeModal"
                  v-bind:drink="currentDrink">
     </order-modal>
-    <div class="disclaimer">DISCLAIMER: Nothing will look like its picture</div>
+    <div class="disclaimer">DISCLAIMER: Nothing will look like the pictures</div>
   </div>
 </template>
 
