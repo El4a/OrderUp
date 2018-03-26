@@ -12,8 +12,8 @@
   </md-empty-state>
   <div class="md-layout md-gutter">
     <div class="md-layout-item" v-for="order in orders">
-       <div v-bind:class=" {overlay: order.beingRemoved }"></div>
       <md-card>
+       <div v-bind:class=" {overlay: order.beingRemoved }"></div>
         <md-card-header>
           <md-card-media>
             <img v-bind:src="'/static/'+order.drink.img" v-bind:alt="order.drink.name">
