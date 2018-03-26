@@ -24,7 +24,7 @@
           </md-card-header-text>
         </md-card-header>
         <md-button class="md-accent" v-on:click="onAfgeleverd(order)" v-bind:disabled="order.beingRemoved || !order.hasPermission" style="font-size: .7rem">
-          <input type="checkbox"/>
+          <input type="checkbox" v-bind:disabled="!order.hasPermission"/>
           Ontvangen
           </md-button>
       </md-card>
