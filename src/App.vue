@@ -4,6 +4,7 @@
      <md-tabs md-sync-route md-alignment="fixed">
         <md-tab md-label="Drinks" to="/"></md-tab>
         <md-tab md-label="Orders" to="/orders"></md-tab>
+        <md-tab md-label="FAQ" to="/faq"></md-tab>
       </md-tabs>
       <!-- TODO optional : custom template for amount of orders?-->
     <router-view/>

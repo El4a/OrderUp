@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Drinks from '@/components/DrinksList'
 import Orders from '@/components/PendingOrderList'
+import Faq from '@/components/FAQ'
 
 Vue.use(Router)
 
@@ -15,6 +16,10 @@ export default new Router({
     {
       path: "/orders",
       component: Orders
+    },
+    {
+      path: "/FAQ",
+      component: Faq
     }
   ]
 })
