@@ -70,7 +70,9 @@
       },
       doesUserHavePermission(order) {
         let user = document.cookie.match(new RegExp('(^| )user=([^;]+)'))[2];
-        return user === order.name; 
+        if (user === order.name) return true
+        else if (user === "admin") return true
+        else return false;
       }
     },
     created() {
