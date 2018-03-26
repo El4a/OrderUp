@@ -23,7 +23,10 @@
             <div class="md-subhead">{{order.name}}</div>
           </md-card-header-text>
         </md-card-header>
-        <md-button class="md-accent md-raised md-dense" v-on:click="onAfgeleverd(order)" v-bind:disabled="order.beingRemoved">Ontvangen</md-button>
+        <md-button class="md-accent" v-on:click="onAfgeleverd(order)" v-bind:disabled="order.beingRemoved" style="font-size: .7rem">
+          <input type="checkbox"/>
+          Ontvangen
+          </md-button>
       </md-card>
     </div>
   </div>
@@ -55,9 +58,15 @@
           .then(() => this.spinner = false);
       },
       onAfgeleverd(order) {
-        order.beingRemoved = true;
-        orderService.afgeleverd(order.id)
-          .then(() => this.refreshOrders());
+        if(this.doesUserHavePermission(order)) {
+          order.beingRemoved = true;
+          orderService.afgeleverd(order.id)
+            .then(() => this.refreshOrders());
+        }
+      },
+      doesUserHavePermission(order) {
+        let user = document.cookie.match(new RegExp('(^| )user=([^;]+)'))[2];
+        return user === order.name; 
       }
     },
     created() {
