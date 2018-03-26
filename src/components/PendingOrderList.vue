@@ -13,7 +13,10 @@
   <div class="md-layout md-gutter">
     <div class="md-layout-item" v-for="order in orders">
       <md-card>
-       <div v-bind:class=" {overlay: order.beingRemoved }"></div>
+       <div v-bind:class=" {overlay: order.beingRemoved }" v-if="order.beingRemoved" >
+           <md-progress-spinner class="md-accent" :md-diameter="50" md-mode="indeterminate" :md-stroke="4"></md-progress-spinner>
+       </div>
+
         <md-card-header>
           <md-card-media>
             <img v-bind:src="'/static/'+order.drink.img" v-bind:alt="order.drink.name">
@@ -139,6 +142,13 @@
     transition: .35s cubic-bezier(.4,0,.2,1);
     transition-property: opacity;
     will-change: opacity;
+
+    .md-progress-spinner {
+      position: absolute;
+      z-index: 10;
+      top: 25%;
+      left: 45%;
+    }
 }
 
 </style>
