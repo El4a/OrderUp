@@ -14,7 +14,7 @@
 
       <md-field :class="errorClass">
         <label>Enter your name to order</label>
-        <md-input v-model="name" required maxlength="15"></md-input>
+        <md-input v-model="name" required maxlength="15" v-on:keyup.enter="sendOrder()"></md-input>
         <span class="md-helper-text">*Idiotic names will not be served</span>
         <span class="md-error">There is an error</span>
       </md-field>
