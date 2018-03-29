@@ -23,7 +23,7 @@
     <p>Doe gerust! Het openen van kasten/schuiven is wel geheel op eigen risico. Het management is niet aansprakelijk voor mogelijk opgelopen trauma's.</p>
     <hr>
     <div class="title">Ik zou precies toch dit of dat anders doen in deze app.</div>
-    <p>Is 't waar? Alle suggesties, klachten, of verbeteringen mogen gemaild worden naar <code>AlsofGijHetBeterKunt@goaway.com</code></p>
+    <p>Behold! The field in which I grow my fucks. Lay thine eyes upon it and thou shalt see that it is barren.</p>
     <hr>
   </div>
 </template>
