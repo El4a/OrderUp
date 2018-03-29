@@ -1,5 +1,5 @@
 <template>
-  <v-touch class="container" v-on:swipeleft="onSwipeLeft()" v-on:swiperight="onSwipeRight()">
+  <div class="container">
     <div class="md-headline">FAQ</div>
     <div class="title">Ik drink geen alcohol, kan ik niet gewoon een waterke krijgen?</div>
     <p>Dit kan zeker. Achteraan de slaapkamer is de deur naar het terras. Hier bevindt zich een waterkraantje waar je zoveel van mag drinken als je wil. Het gebruik van glazen is helaas voorbehouden voor alcoholische dranken.</p>
@@ -25,24 +25,14 @@
     <div class="title">Ik zou precies toch dit of dat anders doen in deze app.</div>
     <p>Is 't waar? Alle suggesties, klachten, of verbeteringen mogen gemaild worden naar <code>AlsofGijHetBeterKunt@goaway.com</code></p>
     <hr>
-  </v-touch>
+  </div>
 </template>
   
 <script>
-import swipe from '@/router/SwipeCommands.js';
-
 export default {
   data() {
     return {
     
-    }
-  },
-  methods: {
-    onSwipeLeft() {
-      swipe.left(this.$route.name, this.$router);
-    },
-    onSwipeRight() {
-      swipe.right(this.$route.name, this.$router);
     }
   }
 }
@@ -52,9 +42,6 @@ export default {
 
   .container {
     padding: 5vw; 
-  }
-
-  .md-headline {
   }
 
   .title {

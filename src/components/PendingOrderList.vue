@@ -1,5 +1,5 @@
 <template>
-<v-touch class="container" v-on:swipeleft="onSwipeLeft()" v-on:swiperight="onSwipeRight()">
+<div class="container">
   <div class="spinner" v-if="spinner">
     <md-progress-spinner class="md-accent" :md-diameter="50" md-mode="indeterminate" :md-stroke="3"></md-progress-spinner>
   </div>
@@ -33,13 +33,12 @@
       </md-card>
     </div>
   </div>
-  </v-touch>
+  </div>
 </template>
 
 <script>
   import orderService from '@/data/OrderService';
   import drinkService from '@/data/DrinkService';
-  import swipe from '@/router/SwipeCommands.js';
 
   export default {
     data() {
@@ -74,12 +73,6 @@
         if (user === order.name) return true
         else if (user === "admin") return true
         else return false;
-      },
-       onSwipeLeft() {
-        swipe.left(this.$route.name, this.$router);
-      },
-      onSwipeRight() {
-        swipe.right(this.$route.name, this.$router);
       }
     },
     created() {

@@ -1,5 +1,5 @@
 <template>
-  <v-touch id="list" v-on:swipeleft="onSwipeLeft()" v-on:swiperight="onSwipeRight()">
+  <div id="list">
     <div class="md-layout md-gutter">
       <div class="md-layout-item md-size-25 md-small-size-33 md-xsmall-size-50" v-for="drink in drinks">
         <div class="drink-wrapper" @click="selectDrink(drink)">
@@ -15,13 +15,12 @@
                  v-bind:drink="currentDrink">
     </order-modal>
     <div class="disclaimer">DISCLAIMER: Nothing will look like the pictures</div>
-  </v-touch>
+  </div>
 </template>
 
 <script>
   import drinkService from '@/data/DrinkService.vue';
   import Order from '@/components/OrderView.vue';
-  import swipe from '@/router/SwipeCommands.js';
 
   export default {
     data() {
@@ -39,12 +38,6 @@
       closeModal() {
         this.showModal = false;
         this.currentDrink = null;
-      },
-      onSwipeLeft() {
-        swipe.left(this.$route.name, this.$router);
-      },
-      onSwipeRight() {
-        swipe.right(this.$route.name, this.$router);
       }
     },
     components: {

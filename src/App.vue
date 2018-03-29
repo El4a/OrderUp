@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <v-touch id="app" v-on:swipeleft="onSwipeLeft()" v-on:swiperight="onSwipeRight()">
     <!-- <img src="./assets/logo.png"> -->
      <md-tabs md-sync-route md-alignment="fixed">
         <md-tab md-label="Drinks" to="/drinks" id='tab_drinks'></md-tab>
@@ -8,15 +8,24 @@
       </md-tabs>
       <!-- TODO optional : custom template for amount of orders?-->
     <router-view/>
-  </div>
+  </v-touch>
 </template>
 
 <script>
+  import swipe from '@/router/SwipeCommands.js';
   export default {
     name: 'App',
     data: () => ({
 
-    })
+    }),
+    methods: {
+      onSwipeLeft() {
+        swipe.left(this.$route.name, this.$router);
+      },
+      onSwipeRight() {
+        swipe.right(this.$route.name, this.$router);
+      }
+    }
   }
 
 </script>
