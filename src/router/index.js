@@ -10,16 +10,22 @@ export default new Router({
   routes: [
     {
       path: '/',
-      //name: 'Drinks', //also doesnt seem necessary
+      name: 'drinks', //also doesnt seem necessary BUT is saved on the $this.route object so useful for routing "hacks" (see swipecommands for navigation on mobile)
       component: Drinks
     },
     {
       path: "/orders",
+      name: 'orders',
       component: Orders
     },
     {
       path: "/FAQ",
+      name: "faq",
       component: Faq
+    },
+    {
+      path: '*',
+      redirect: '/'
     }
   ]
 })
