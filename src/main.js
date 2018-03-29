@@ -23,7 +23,8 @@ Vue.use(MdField)
 Vue.use(MdProgress)
 Vue.use(MdEmptyState)
 
-
+import VueTouch from 'vue-touch';
+Vue.use(VueTouch, {name: 'v-touch'})
 
 Vue.config.productionTip = false
 
