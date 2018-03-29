@@ -45,7 +45,7 @@
     created: function () {
       //check for name cookie called "user"
       let match = document.cookie.match(new RegExp('(^| )user=([^;]+)'));
-      if (match) {
+      if (!!match) {
         this.name = match[2];
       }
     },
