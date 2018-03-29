@@ -11,7 +11,7 @@
     md-description="There are no more pending orders!">
   </md-empty-state>
   <div class="md-layout md-gutter">
-    <div class="md-layout-item" v-for="order in orders">
+    <div class="md-layout-item" v-for="order in orders" v-bind:key="order.id">
       <md-card>
        <div v-bind:class=" {overlay: order.beingRemoved }" v-if="order.beingRemoved" >
            <md-progress-spinner class="md-accent" :md-diameter="50" md-mode="indeterminate" :md-stroke="4"></md-progress-spinner>
