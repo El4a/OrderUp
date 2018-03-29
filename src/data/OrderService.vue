@@ -1,18 +1,24 @@
 <script>
   import axios from 'axios';
 
+  //jsonbin
+  // const JSONBIN_HTTP = axios.create({
+  //   baseURL: `https://api.jsonbin.io/b/${process.env.BIN_ID}/`,
+  //   headers: {
+  //     'secret-key': process.env.JSONBIN_API_TOKEN,
+  //     'cache-control': 'no-cache'
+  //   }
+  // });
+
+  //myjson
   const JSONBIN_HTTP = axios.create({
-    baseURL: `https://api.jsonbin.io/b/${process.env.BIN_ID}/`,
-    headers: {
-      'secret-key': process.env.JSONBIN_API_TOKEN,
-      'cache-control': 'no-cache'
-    }
+    baseURL: `https://api.myjson.com/bins/${process.env.BIN_ID}`
   });
 
   export default {
     read() {
       return JSONBIN_HTTP
-        .get('latest')
+        .get()
         .then(response => response.data);
     },
     order(drinkId, name) {

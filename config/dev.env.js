@@ -4,5 +4,5 @@ const prodEnv = require('./prod.env')
 
 module.exports = merge(prodEnv, {
   NODE_ENV: '"development"',
-  BIN_ID: "'5abccc8d7afa326cc27952cc'"
+  BIN_ID: "'b5bzj'"
 });
