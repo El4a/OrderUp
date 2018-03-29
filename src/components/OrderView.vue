@@ -1,5 +1,5 @@
 <template>
-  <md-dialog :md-active.sync="showDialog" :md-fullscreen=false @md-closed="onClosed">
+  <md-dialog :md-active.sync="showDialog" :md-fullscreen=false @md-closed="onClosed" v-on:keyup.enter="sendOrder()">
     <span class="close" @click="close">
       <md-icon style="color: #fff">clear</md-icon>
     </span>
