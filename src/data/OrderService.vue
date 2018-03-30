@@ -11,13 +11,14 @@
   // });
 
   //myjson
-  const JSONBIN_HTTP = axios.create({
-    baseURL: `https://api.myjson.com/bins/${process.env.BIN_ID}`
+  const MYJSON_HTTP = axios.create({
+    baseURL: `https://api.myjson.com/bins/${process.env.BIN_ID}`,
+    timeout: 5000
   });
 
   export default {
     read() {
-      return JSONBIN_HTTP
+      return MYJSON_HTTP
         .get()
         .then(response => response.data);
     },
@@ -25,7 +26,7 @@
       const newOrder = {id: new Date().valueOf(), drinkId, name, "afgeleverd": false};
       return this.read()
         .then(orders => Array.of(...orders, newOrder))
-        .then(orders => JSONBIN_HTTP.put('', orders))
+        .then(orders => MYJSON_HTTP.put('', orders))
     },
     afgeleverd(orderId) {
       return this.read()
@@ -33,7 +34,7 @@
           orders.find(order => order.id === orderId).afgeleverd = true;
           return orders;
         })
-        .then(orders => JSONBIN_HTTP.put('', orders))
+        .then(orders => MYJSON_HTTP.put('', orders))
     }
   };
 </script>

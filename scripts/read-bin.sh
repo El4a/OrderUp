@@ -2,6 +2,5 @@
 source "$(dirname $0)/environment.sh"
 
 curl -X GET \
-  https://api.jsonbin.io/b/$1/latest \
-  -H 'cache-control: no-cache' \
-  -H "secret-key: ${JSONBIN_API_TOKEN}"
+  https://api.myjson.com/bins/$1 \
+  -H 'cache-control: no-cache'

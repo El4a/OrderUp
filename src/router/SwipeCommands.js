@@ -3,7 +3,7 @@ import VueTouch from 'vue-touch';
 Vue.use(VueTouch, {name: 'v-touch'});
 VueTouch.config.swipe = {
   direction: 'horizontal'
-}
+};
 
 export default {
   left(route, router) {
@@ -13,10 +13,10 @@ export default {
         break;
       case 'orders':
         router.push('/faq');
+        break;
       default:
         return null;
-    };
-
+    }
   },
   right(route, router) {
     switch(route) {
@@ -25,6 +25,7 @@ export default {
         break;
       case 'orders':
         router.push('/');
+        break;
       default:
         return null;
     }

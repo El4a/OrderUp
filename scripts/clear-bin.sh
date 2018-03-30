@@ -2,8 +2,7 @@
 source "$(dirname $0)/environment.sh"
 
 curl -X PUT \
-  https://api.jsonbin.io/b/$1 \
+  https://api.myjson.com/bins/$1 \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
-  -H "secret-key: ${JSONBIN_API_TOKEN}" \
-  -d '[{"id": 123456, "drinkId": 1, "name": "Dieter Van Peer", "afgeleverd": true}]'
+  -d '[]'
