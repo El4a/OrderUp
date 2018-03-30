@@ -11,8 +11,9 @@
   // });
 
   //myjson
-  const JSONBIN_HTTP = axios.create({
-    baseURL: `https://api.myjson.com/bins/${process.env.BIN_ID}`
+  const MYJSON_HTTP = axios.create({
+    baseURL: `https://api.myjson.com/bins/${process.env.BIN_ID}`,
+    timeout: 5000
   });
 
   export default {
