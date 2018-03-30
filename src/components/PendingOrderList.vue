@@ -27,8 +27,8 @@
           </md-card-header-text>
         </md-card-header>
         <md-button class="md-accent" v-on:click="onAfgeleverd(order)" v-bind:disabled="order.beingRemoved || !order.hasPermission" style="font-size: .7rem">
-          <input type="checkbox" v-bind:disabled="!order.hasPermission"/>
-          Ontvangen
+          <input id="ontvangen" type="checkbox" v-bind:disabled="!order.hasPermission"/>
+          <label for="ontvangen">Ontvangen</label>
           </md-button>
       </md-card>
     </div>
@@ -70,9 +70,7 @@
       },
       doesUserHavePermission(order) {
         let user = document.cookie.match(new RegExp('(^| )user=([^;]+)'))[2];
-        if (user === order.name) return true
-        else if (user === "admin") return true
-        else return false;
+        return user === order.name || user === "admin";
       }
     },
     created() {
