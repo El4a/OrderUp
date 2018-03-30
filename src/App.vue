@@ -37,12 +37,12 @@
   }
 
   //krijg de material css die de foute highlight in de tab veroorzaakt niet overschreven dus gebruik deze css klass van vue-router als hook
-  // .router-link-active:hover:before {
-  //   background-color:#e9e9e9 !important;
-  // }
-  // .router-link-active:before {
-  //   background-color: transparent !important;
-  // }
+  .router-link-active:hover:before {
+    background-color:#e9e9e9 !important;
+  }
+  .router-link-active:before {
+    background-color: transparent !important;
+  }
 
 </style>
 
