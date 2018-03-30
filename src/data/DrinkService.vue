@@ -111,20 +111,6 @@
       description: "Voor zij die van plan zijn te blijven slapen. Bestaat uit 40% alcohol en 60% kater.",
       img: 'long-island-ice-tea.jpeg',
       ingredients: ['Wodka', 'Gin', 'Rum', 'Tequila', 'Triple Sec', 'Citroen', 'Cola']
-    },
-    {
-      id: 17,
-      name: 'Raspberry Delight',
-      description: "Dit bevat fruit. Kan jij raden welk?",
-      img: 'delight.jpg',
-      ingredients: ['Rum', 'Triple Sec', 'Citroensap', 'Sinaasappelsap', 'Frambozen aka Raspberry']
-    },
-    {
-      id: 18,
-      name: 'Hazel Cream',
-      description: "Laat ons eerlijk zijn: dit is gewoon een dessert met drank in. Caloriebom van het genre: hierna 2 dagen best niks meer eten om te compenseren.",
-      img: 'hazel-cream.jpg',
-      ingredients: ['Wodka', 'Room', 'Kahlua', 'Frangelico']
     }
   ];
   export default {
