@@ -1,3 +1,10 @@
+import Vue from 'vue'
+import VueTouch from 'vue-touch';
+Vue.use(VueTouch, {name: 'v-touch'});
+VueTouch.config.swipe = {
+  direction: 'horizontal'
+}
+
 export default {
   left(route, router) {
     switch(route) {
