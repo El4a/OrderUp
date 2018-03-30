@@ -62,7 +62,7 @@
       border: .2rem solid #00796B;
       background-color: #00796B;
       height: 100%;
-      font-size: 1.1rem;
+      font-size: .9rem;
       text-align: center;
 
       .img-wrapper {
@@ -110,7 +110,6 @@
         }
       }
     }
-
   }
 
   @media (min-width: 960px) {
