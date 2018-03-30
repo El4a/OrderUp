@@ -1,5 +1,5 @@
 <template>
-  <v-touch id="app" v-on:swipeleft="onSwipeLeft()" v-on:swiperight="onSwipeRight()">
+  <v-touch id="app" v-on:swipeleft="onSwipeLeft()" v-on:swiperight="onSwipeRight()" ref="app" tabindex="0">
     <!-- <img src="./assets/logo.png"> -->
      <md-tabs md-sync-route md-alignment="fixed">
         <md-tab md-label="Drinks" to="/drinks" id='tab_drinks'></md-tab>
@@ -21,6 +21,8 @@
     methods: {
       onSwipeLeft() {
         swipe.left(this.$route.name, this.$router);
+        this.$refs.app.focus();
+        
       },
       onSwipeRight() {
         swipe.right(this.$route.name, this.$router);
@@ -37,12 +39,9 @@
   }
 
   //krijg de material css die de foute highlight in de tab veroorzaakt niet overschreven dus gebruik deze css klass van vue-router als hook
-  .router-link-active:hover:before {
-    background-color:#e9e9e9 !important;
-  }
-  .router-link-active:before {
+  .md-button:not([disabled]):before {
     background-color: transparent !important;
-  }
+}
 
 </style>
 
