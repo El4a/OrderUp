@@ -19,6 +19,10 @@
     <div class="title">En valt het wat mee?</div>
     <p>Nee</p>
     <hr>
+    <div class="title">Mag ik op de wifi?</div>
+    <p>
+      Verbind met "Winternet is coming" en wachtwoord "PingInTheNorth".</p>
+    <hr>
     <div class="title">Mag ik wat gaan rondkijken in de rest van het appartement?</div>
     <p>Doe gerust! Het openen van kasten/schuiven is wel geheel op eigen risico. Het management is niet aansprakelijk voor mogelijk opgelopen trauma's.</p>
     <hr>
