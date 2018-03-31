@@ -5,7 +5,7 @@
     <p>Dit kan zeker. Achteraan de slaapkamer is de deur naar het terras. Hier bevindt zich een waterkraantje waar je zoveel van mag drinken als je wil. Het gebruik van glazen is helaas voorbehouden voor alcoholische dranken.</p>
     <hr>
     <div class="title">Ik zie geen pending orders meer! Dat spinnerke blijft gewoon gaan.</div>
-    <p>Een gekend probleem *kuch*backend*kuch*. Vaak kan je de lijst terug zien nadat je iets heb bestelt. Indien het dan nog niet werkt, let me know.</p>
+    <p>Een gekend probleem *kuch*backend*kuch*. Vaak kan je de lijst terug zien nadat je iets hebt besteld. Indien het dan nog niet werkt, let me know.</p>
     <p>Software development is zoals seks: langs de voorkant gaat het allemaal vanzelf, maar langs de achterkant kost meer moeite.</p>
     <hr>
     <div class="title">Waar is het toilet?</div>
