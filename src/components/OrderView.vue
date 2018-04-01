@@ -31,6 +31,7 @@
 
 <script>
   import orderService from '@/data/OrderService';
+  import userService from '@/data/UserService';
 
   export default {
     props: ['drink'],
@@ -43,11 +44,7 @@
       }
     },
     created: function () {
-      //check for name cookie called "user"
-      let match = document.cookie.match(new RegExp('(^| )user=([^;]+)'));
-      if (!!match) {
-        this.name = match[2];
-      }
+        this.name = userService.getUser();
     },
     methods: {
       sendOrder() {
@@ -55,13 +52,10 @@
         if (this.hasName) {
           this.spinner = true;
           orderService.order(this.drink.id, this.name)
-            .then(() => this.setUserCookie())
+            .then(() => userService.setUser(this.name))
             .then(() => this.close())
             .then(() => this.$router.push('/orders'));
         }
-      },
-      setUserCookie() {
-        document.cookie = "user=" + this.name + ";expires=Sun, 01 Apr 2018 12:00:00 UTC";
       },
       close() {
         this.showDialog = false;

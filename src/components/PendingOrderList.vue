@@ -37,6 +37,7 @@
 </template>
 
 <script>
+  import userService from '@/data/UserService';
   import orderService from '@/data/OrderService';
   import drinkService from '@/data/DrinkService';
 
@@ -62,14 +63,14 @@
           .then(() => this.spinner = false);
       },
       onAfgeleverd(order) {
-        if(this.doesUserHavePermission(order)) {
+        if(order.hasPermission) {
           order.beingRemoved = true;
           orderService.afgeleverd(order.id)
             .then(() => this.refreshOrders());
         }
       },
       doesUserHavePermission(order) {
-        let user = document.cookie.match(new RegExp('(^| )user=([^;]+)'))[2];
+        let user = userService.getUser();
         return user === order.name || user === "admin";
       }
     },
