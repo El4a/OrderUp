@@ -32,6 +32,3 @@ new Vue({
   components: { App },
   template: '<App/>'
 });
-
-console.log('new feature added');
-window.addEventListener('devicemotion', function() {window.alert('moviiiing')});
